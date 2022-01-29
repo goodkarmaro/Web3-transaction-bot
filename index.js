@@ -2,6 +2,7 @@ import DiscordJS, { Intents } from 'discord.js'
 import dotenv from 'dotenv'
 import dm from './dm.js'
 import reply from './reply.js'
+import scrape from './scraper.js'
 
 dotenv.config()
 
@@ -14,7 +15,7 @@ const client = new DiscordJS.Client({
 })
 
 
-client.on('ready', () => {
+client.on('ready', async () => {
 
     console.log('Bot ready')
 
@@ -23,9 +24,10 @@ client.on('ready', () => {
     reply(client, '!GKRopen', 
     'Current tokens open for purchase, Price, Total supply left, Max supply per person')
 
-    reply(client, '!GKRclosed', `Closed tokens:
-    Price:
-    Current supply`)
+    const tokens = await scrape()
+
+    reply(client, '!GKRclosed', `__Closed tokens__
+    **${tokens.name.toUpperCase()}** Max supply: ${tokens.maxSupply}`)
 
 })
 
