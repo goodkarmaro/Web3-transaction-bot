@@ -16,4 +16,4 @@ const scrape = async () => {
 }
 
 
-export default scrape
+export default scrape;
