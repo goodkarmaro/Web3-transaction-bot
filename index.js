@@ -20,6 +20,7 @@ client.on('ready', async () => {
     console.log('Bot ready')
 
     dm(client, '!GKRbuy', 'Authorize wallet')
+    reply(client, '!GKRbuy', 'Please check DM')
 
     reply(client, '!GKRopen', 
     'Current tokens open for purchase, Price, Total supply left, Max supply per person')

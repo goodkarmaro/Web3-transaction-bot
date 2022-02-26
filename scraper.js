@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio';
 
 const scrape = async () => {
 
-    const {data} = await axios.get(`https://etherscan.io/token/0xf669F717AB2980A86078f4196dcAAFcBE4AF8577#comments`)
+    const { data } = await axios.get(`https://etherscan.io/token/0xf669F717AB2980A86078f4196dcAAFcBE4AF8577#comments`)
 
     const $ = cheerio.load(data)
 
